@@ -1,13 +1,15 @@
 # blockp5.js
+
 This is block programing example for p5.js based on Blockly
 
-## Example
+## Links
 
-- [block p5.js](https://ycatch.github.io/blockp5.js/p5/code/)
+- [Example](https://ycatch.github.io/blockp5.js/p5/code/)
+- [Github](https://github.com/ycatch/blockp5.js)
 
 ## License
 
-Released under MIT License. Please see LICENSE.
+Released under the MIT License. Please see LICENSE.
 
 All Components have their own license.
 
