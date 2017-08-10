@@ -13,8 +13,8 @@ All Components have their own license.
 
 ## Components
 
-- [Blockly](https://developers.google.com/blockly/)
+- [Blockly](https://developers.google.com/blockly/), [Github](https://github.com/google/blockly)
 
-- [p5.js](https://p5js.org/)
+- [p5.js](https://p5js.org/), [Github](https://github.com/processing/p5.js)
 
-- [HTMLkickstart](http://www.99lime.com/elements/)
+- [HTMLkickstart](http://www.99lime.com/elements/), [Github](https://github.com/joshuagatcke/HTML-KickStart)
