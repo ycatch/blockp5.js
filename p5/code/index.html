@@ -44,7 +44,6 @@
                 <div id="myContainer"></div>
                 <p>
                     <button onclick="showCode()">Show Code</button>
-                    <button onclick="runCode()">Run Code</button>
                 </p>
                 <ul class="button-bar">
                     <li class="large">
@@ -535,6 +534,7 @@
 
             $("#p5Run").click(function() {
                 execStatus = "run";
+                runCode();
             });
 
             // Pause
