@@ -4,7 +4,7 @@ This is block programing example for p5.js based on Blockly
 
 ## Links
 
-- [Example](https://ycatch.github.io/blockp5.js/p5/code/)
+- [Demo](https://ycatch.github.io/blockp5.js/p5/code/)
 - [Github](https://github.com/ycatch/blockp5.js)
 
 ## License
