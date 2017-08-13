@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <!-- META -->
     <title>blockp5.js</title>
@@ -45,6 +46,20 @@
                     <button onclick="showCode()">Show Code</button>
                     <button onclick="runCode()">Run Code</button>
                 </p>
+                <ul class="button-bar">
+                    <li class="large">
+                        <a id="p5Run" href="javascript:void(0)"><i class="fa fa-play"></i> Start</a>
+                    </li>
+                    <li class="large">
+                        <a id="p5Pause" href="javascript:void(0)"><i class="fa fa-pause"></i> Pause</a>
+                    </li>
+                    <li class="large">
+                        <a id="p5Restart" href="javascript:void(0)"><i class="fa fa-stop"> Re-Start</i></a>
+                    </li>
+                    <li class="large">
+                        <a href=""><i class="fa "></i></a>
+                    </li>
+                </ul>
             </td>
             <td id="blocklyArea"></td>
         </tr>
@@ -372,67 +387,67 @@
 
     <xml id="startBlocks" style="display: none">
         <block type="setup">
-          <statement name="do">
-            <block type="createcanvas">
-              <value name="width">
-                <block type="math_number">
-                  <field name="NUM">600</field>
-                </block>
-              </value>
-              <value name="height">
-                <block type="math_number">
-                  <field name="NUM">600</field>
-                </block>
-              </value>
-              <value name="canvas">
-                <block type="text">
-                  <field name="TEXT">myContainer</field>
-                </block>
-              </value>
-              <next>
-                <block type="fill">
-                  <value name="NAME">
-                    <block type="math_number">
-                      <field name="NUM">255</field>
-                    </block>
-                  </value>
-                  <next>
-                    <block type="background">
-                      <value name="NAME">
+            <statement name="do">
+                <block type="createcanvas">
+                    <value name="width">
                         <block type="math_number">
-                          <field name="NUM">200</field>
+                            <field name="NUM">600</field>
                         </block>
-                      </value>
-                    </block>
-                  </next>
+                    </value>
+                    <value name="height">
+                        <block type="math_number">
+                            <field name="NUM">600</field>
+                        </block>
+                    </value>
+                    <value name="canvas">
+                        <block type="text">
+                            <field name="TEXT">myContainer</field>
+                        </block>
+                    </value>
+                    <next>
+                        <block type="fill">
+                            <value name="NAME">
+                                <block type="math_number">
+                                    <field name="NUM">255</field>
+                                </block>
+                            </value>
+                            <next>
+                                <block type="background">
+                                    <value name="NAME">
+                                        <block type="math_number">
+                                            <field name="NUM">200</field>
+                                        </block>
+                                    </value>
+                                </block>
+                            </next>
+                        </block>
+                    </next>
                 </block>
-              </next>
-            </block>
-          </statement>
-          <next>
-            <block type="draw">
-              <statement name="do">
-                <block type="ellipse">
-                  <value name="x">
-                    <block type="mousex"></block>
-                  </value>
-                  <value name="y">
-                    <block type="mousey"></block>
-                  </value>
-                  <value name="width">
-                    <block type="math_number">
-                      <field name="NUM">50</field>
-                    </block>
-                  </value>
-                  <value name="height">
-                    <block type="math_number">
-                      <field name="NUM">50</field>
-                    </block>
-                  </value>
+            </statement>
+            <next>
+                <block type="draw">
+                    <statement name="do">
+                        <block type="ellipse">
+                            <value name="x">
+                                <block type="mousex"></block>
+                            </value>
+                            <value name="y">
+                                <block type="mousey"></block>
+                            </value>
+                            <value name="width">
+                                <block type="math_number">
+                                    <field name="NUM">50</field>
+                                </block>
+                            </value>
+                            <value name="height">
+                                <block type="math_number">
+                                    <field name="NUM">50</field>
+                                </block>
+                            </value>
+                        </block>
+                    </statement>
                 </block>
-              </statement>
-            </block>
-          </next>
+            </next>
         </block>
     </xml>
 
@@ -510,14 +525,35 @@
 
             try {
                 var s = new Function("p", code);
-				Pjs = new p5(s);
+                Pjs = new p5(s);
             } catch (e) {
                 alert(e);
             }
         }
+
+        var init = function() {
+
+            $("#p5Run").click(function() {
+                execStatus = "run";
+            });
+
+            // Pause
+            $("#p5Pause").click(function() {
+                execStatus = "pause";
+            });
+
+            $("#p5Restart").click(function() {
+                if (confirm("Re-Start!")) {
+                    location.reload(false);
+                }
+            });
+        }
+
+        var execStatus = "run";
         window.addEventListener('resize', onresize, false);
         onresize();
         Blockly.svgResize(workspace);
+        init();
         runCode();
     </script>
 </body>
