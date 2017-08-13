@@ -3,7 +3,7 @@
 
 <head>
     <!-- META -->
-    <title>blockp5.js</title>
+    <title>Demo - blockp5.js</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
@@ -32,7 +32,7 @@
     <nav class="navbar">
         <ul>
             <li style="font-weight: bold;">
-                <a href=''>blockp5.js</a>
+                <a href=''>Demo - blockp5.js</a>
             </li>
             <li><a href='https://ycatch.github.io/blockp5.js/'>Docs</a></li>
             <li><a href='https://github.com/ycatch/blockp5.js'>Github</a></li>
@@ -53,7 +53,7 @@
                         <a id="p5Pause" href="javascript:void(0)"><i class="fa fa-pause"></i> Pause</a>
                     </li>
                     <li class="large">
-                        <a id="p5Restart" href="javascript:void(0)"><i class="fa fa-stop"> Re-Start</i></a>
+                        <a id="p5Reset" href="javascript:void(0)"><i class="fa fa-stop"> Reset</i></a>
                     </li>
                     <li class="large">
                         <a href=""><i class="fa "></i></a>
@@ -542,8 +542,8 @@
                 execStatus = "pause";
             });
 
-            $("#p5Restart").click(function() {
-                if (confirm("Re-Start!")) {
+            $("#p5Reset").click(function() {
+                if (confirm("Reset All!")) {
                     location.reload(false);
                 }
             });
