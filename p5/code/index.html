@@ -47,13 +47,13 @@
                 </p>
                 <ul class="button-bar">
                     <li class="large">
-                        <a id="p5Run" href="javascript:void(0)"><i class="fa fa-play"></i> Start</a>
+                        <a id="p5Run" href="javascript:void(0)"><i class="fa fa-play"></i> Run</a>
                     </li>
                     <li class="large">
                         <a id="p5Pause" href="javascript:void(0)"><i class="fa fa-pause"></i> Pause</a>
                     </li>
                     <li class="large">
-                        <a id="p5Restart" href="javascript:void(0)"><i class="fa fa-stop"> Re-Start</i></a>
+                        <a id="p5Reset" href="javascript:void(0)"><i class="fa fa-stop"> Reset</i></a>
                     </li>
                     <li class="large">
                         <a href=""><i class="fa "></i></a>
@@ -542,8 +542,8 @@
                 execStatus = "pause";
             });
 
-            $("#p5Restart").click(function() {
-                if (confirm("Re-Start!")) {
+            $("#p5Reset").click(function() {
+                if (confirm("Reset all!")) {
                     location.reload(false);
                 }
             });
