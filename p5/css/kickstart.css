@@ -148,7 +148,7 @@ margin:0;
 list-style-type:none;
 
 }
-	
+
 ul.alt{
 padding:0;
 margin:0 0 20px 0;
@@ -288,6 +288,7 @@ font-size:0;
 	border:1px solid #e5e5e5;
 	border-bottom:0;
 	font-size:0.9em;
+    width:106px;
 	zoom:1;
 	}
 

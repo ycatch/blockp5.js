@@ -20,3 +20,5 @@ All Components have their own license.
 - [p5.js](https://p5js.org/), [Github](https://github.com/processing/p5.js)
 
 - [HTMLkickstart](http://www.99lime.com/elements/), [Github](https://github.com/joshuagatcke/HTML-KickStart)
+
+- highlight.js

@@ -10,6 +10,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="../css/kickstart.css" media="all" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight_default.css" media="all" />
     <link rel="stylesheet" type="text/css" href="style.css" media="all" />
 
     <!-- Javascript -->
@@ -26,6 +27,7 @@
 
     <!-- p5.js -->
     <script src="../js/p5.min.js"></script>
+    <script src="../js/highlight.pack.js"></script>
 </head>
 
 <body>
@@ -40,11 +42,7 @@
     </nav>
     <table>
         <tr>
-            <td id="canvasArea" width="620">
-                <div id="myContainer"></div>
-                <p>
-                    <button onclick="showCode()">Show Code</button>
-                </p>
+            <td>
                 <ul class="button-bar">
                     <li class="large">
                         <a id="p5Run" href="javascript:void(0)"><i class="fa fa-play"></i> Run</a>
@@ -55,16 +53,30 @@
                     <li class="large">
                         <a id="p5Reset" href="javascript:void(0)"><i class="fa fa-stop"> Reset</i></a>
                     </li>
-                    <li class="large">
-                        <a href=""><i class="fa "></i></a>
-                    </li>
                 </ul>
             </td>
-            <td id="blocklyArea"></td>
+            <td style="padding:0;">
+                <!-- Tabs Left -->
+                <ul class="tabs left">
+                    <li><a href="#tabr_block">block</a></li>
+                    <li id="code_tab"><a href="#tabr_code">code</a></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td id="canvasArea" width="520">
+                <div id="myContainer"></div>
+            </td>
+            <td id="blocklyArea">
+                <div id="tabr_block" class="tab-content">
+                    <div id="blocklyDiv" style="position: absolute"></div>
+                </div>
+                <div id="tabr_code" class="tab-content">
+                    <pre id="codeDiv"></pre>
+                </div>
+            </td>
         </tr>
     </table>
-
-    <div id="blocklyDiv" style="position: absolute"></div>
 
     <xml id="toolbox" style="display: none">
         <category name="p5.js" colour="#ED225D">
@@ -390,12 +402,12 @@
                 <block type="createcanvas">
                     <value name="width">
                         <block type="math_number">
-                            <field name="NUM">600</field>
+                            <field name="NUM">500</field>
                         </block>
                     </value>
                     <value name="height">
                         <block type="math_number">
-                            <field name="NUM">600</field>
+                            <field name="NUM">500</field>
                         </block>
                     </value>
                     <value name="canvas">
@@ -454,6 +466,7 @@
         var PJs;
         var blocklyArea = document.getElementById('blocklyArea');
         var blocklyDiv = document.getElementById('blocklyDiv');
+        var codeDiv = $("#tabr_code");
         var toolboxText = document.getElementById('toolbox').outerHTML;
         var toolboxXml = Blockly.Xml.textToDom(toolboxText);
         var workspace = Blockly.inject(blocklyDiv, {
@@ -505,14 +518,12 @@
             blocklyDiv.style.top = y + 'px';
             blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
             blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
-        };
 
-        var showCode = function() {
-            // Generate JavaScript code and display it.
-            Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-            var code = Blockly.JavaScript.workspaceToCode(workspace);
-            alert(code);
-        }
+            // codeDiv.style.left = x + 'px';
+            // codeDiv.style.top = y + 'px';
+            // codeDiv.style.width = blocklyArea.offsetWidth + 'px';
+            // codeDiv.style.height = blocklyArea.offsetHeight + 'px';
+        };
 
         var runCode = function() {
             // Generate JavaScript code and run it.
@@ -546,6 +557,20 @@
                 if (confirm("Reset All!")) {
                     location.reload(false);
                 }
+            });
+
+            //rshow to Code tab
+            $("#code_tab").click(function() {
+                // Generate JavaScript code and display it.
+                Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+                var code = Blockly.JavaScript.workspaceToCode(workspace);
+                // alert(code);
+
+                var codeDiv = $("#codeDiv");
+                codeDiv.text(code);
+                codeDiv.each(function(i, block) {
+                    hljs.highlightBlock(block);
+                });
             });
         }
 
