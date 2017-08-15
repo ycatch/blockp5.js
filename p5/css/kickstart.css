@@ -269,7 +269,6 @@ font-size:0;
 	top:0;
 	left:0;
 	*top:1px;/*IE 7 ONLY*/
-    width:120px;
 	zoom:1;
 	}
 
@@ -289,7 +288,7 @@ font-size:0;
 	border:1px solid #e5e5e5;
 	border-bottom:0;
 	font-size:0.9em;
-    width:118px;
+    width:110px;
 	zoom:1;
 	}
 
