@@ -163,20 +163,22 @@ display:block;
 	Blockly
 -----------------------------------*/
 table {
-    padding-top:55px;
-    margin-top:50px;
+    padding-top: 55px;
+    margin-top: 50px;
     height: 95%;
     width: 100%;
-    vertical-align: top;
 }
 
 #canvasArea {
     bgcolor: "#eeeeee";
+    padding-top:0;
     vertical-align: top;
 }
+
 #blocklyArea {
     margin:0;
     padding:0;
+    border:0;
     height: 99%;
     vertical-align: top;
 }

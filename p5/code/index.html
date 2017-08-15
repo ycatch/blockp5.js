@@ -72,7 +72,7 @@
                     <div id="blocklyDiv" style="position: absolute"></div>
                 </div>
                 <div id="tab_code" class="tab-content">
-                    <pre id="codeDiv"></pre>
+                    <pre><code id="codeDiv"></code></pre>
                 </div>
             </td>
         </tr>
@@ -536,6 +536,17 @@
             }
         }
 
+        var setCode = function() {
+            // Generate JavaScript code and display it.
+            Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+            var code = Blockly.JavaScript.workspaceToCode(workspace);
+            var codeDiv = $("#codeDiv");
+            codeDiv.text(code);
+            codeDiv.each(function(i, block) {
+                hljs.highlightBlock(block);
+            });
+        }
+
         var init = function() {
 
             $("#p5Run").click(function() {
@@ -557,18 +568,12 @@
 
             //rshow to Code tab
             $("#code_tab").click(function() {
-                // Generate JavaScript code and display it.
-                Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-                var code = Blockly.JavaScript.workspaceToCode(workspace);
-                var codeDiv = $("#codeDiv");
-                codeDiv.text(code);
-                codeDiv.each(function(i, block) {
-                    hljs.highlightBlock(block);
-                });
+                setCode();
             });
 
             $(window).scrollTop(0);
             workspace.scrollCenter();
+            setCode();
         }
 
         var execStatus = "run";
