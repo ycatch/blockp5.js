@@ -15,7 +15,7 @@
 
     <!-- Javascript -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../js/kickstart.js"></script>
+    <script src="../js/kickstart.js"></script>
     <script src="../../blockly_compressed.js"></script>
     <script src="../../blocks_compressed.js"></script>
     <script src="../../javascript_compressed.js"></script>
@@ -58,8 +58,8 @@
             <td style="padding:0;">
                 <!-- Tabs Left -->
                 <ul class="tabs left">
-                    <li><a href="#tabr_block">block</a></li>
-                    <li id="code_tab"><a href="#tabr_code">code</a></li>
+                    <li><a href="#tab_block">block</a></li>
+                    <li id="code_tab"><a href="#tab_code">code</a></li>
                 </ul>
             </td>
         </tr>
@@ -68,10 +68,10 @@
                 <div id="myContainer"></div>
             </td>
             <td id="blocklyArea">
-                <div id="tabr_block" class="tab-content">
+                <div id="tab_block" class="tab-content">
                     <div id="blocklyDiv" style="position: absolute"></div>
                 </div>
-                <div id="tabr_code" class="tab-content">
+                <div id="tab_code" class="tab-content">
                     <pre id="codeDiv"></pre>
                 </div>
             </td>
@@ -550,6 +550,7 @@
 
             $("#p5Reset").click(function() {
                 if (confirm("Reset All!")) {
+                    $(window).scrollTop(0);
                     location.reload(false);
                 }
             });
