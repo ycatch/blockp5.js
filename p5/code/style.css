@@ -167,6 +167,7 @@ table {
     margin-top:50px;
     height: 95%;
     width: 100%;
+    vertical-align: top;
 }
 
 #canvasArea {
@@ -174,6 +175,8 @@ table {
     vertical-align: top;
 }
 #blocklyArea {
-    padding-top: 55px;
+    margin:0;
+    padding:0;
     height: 99%;
+    vertical-align: top;
 }
