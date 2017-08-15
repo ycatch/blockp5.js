@@ -465,8 +465,8 @@
     <script>
         var PJs;
         var blocklyArea = document.getElementById('blocklyArea');
+        // var blocklyDiv = document.getElementById('blocklyDiv');
         var blocklyDiv = document.getElementById('blocklyDiv');
-        var codeDiv = $("#tabr_code");
         var toolboxText = document.getElementById('toolbox').outerHTML;
         var toolboxXml = Blockly.Xml.textToDom(toolboxText);
         var workspace = Blockly.inject(blocklyDiv, {
@@ -518,11 +518,6 @@
             blocklyDiv.style.top = y + 'px';
             blocklyDiv.style.width = blocklyArea.offsetWidth + 'px';
             blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
-
-            // codeDiv.style.left = x + 'px';
-            // codeDiv.style.top = y + 'px';
-            // codeDiv.style.width = blocklyArea.offsetWidth + 'px';
-            // codeDiv.style.height = blocklyArea.offsetHeight + 'px';
         };
 
         var runCode = function() {
@@ -564,14 +559,15 @@
                 // Generate JavaScript code and display it.
                 Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
                 var code = Blockly.JavaScript.workspaceToCode(workspace);
-                // alert(code);
-
                 var codeDiv = $("#codeDiv");
                 codeDiv.text(code);
                 codeDiv.each(function(i, block) {
                     hljs.highlightBlock(block);
                 });
             });
+
+            $(window).scrollTop(0);
+            workspace.scrollCenter();
         }
 
         var execStatus = "run";
