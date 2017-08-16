@@ -11,7 +11,7 @@ This is block programing example for p5.js based on Blockly
 
 
 1. Exchange **mouseX** and **mouseY**.
-2. Move **background color** from **setup** to **draw**.
+2. Move **background color** from **draw** to **setup**.
 3. Replace **ellipse** to **rect**.
 
 
