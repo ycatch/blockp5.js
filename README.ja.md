@@ -1,4 +1,4 @@
-# blockp5.js
+# blockp5.js = p5.js + blockly
 
 p5.js と Blockly による、ブロックプログラミングのサンプル。
 

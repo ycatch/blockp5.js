@@ -1,15 +1,32 @@
-# blockp5.js
+# blockp5.js = p5.js + blockly
 
 This is block programing example for p5.js based on Blockly
 
 ![screenshot](screenshot.png)
 
 
-## Links
+## Try it !
 
 - [Demo](https://ycatch.github.io/blockp5.js/p5/code/)
+
+
+1. Exchange **mouseX** and **mouseY**.
+2. Move **background color** from **setup** to **draw**.
+3. Replace **ellipse** to **rect**.
+
+
+## Operations
+
+- Edit blocks and click **Run** button.
+- Cut:CTRL+x, Copy:CTRL+c, Paste:CTRL+v.
+- Undo: CTRL+z.
+
+
+## Source code
+
 - [github](https://github.com/ycatch/blockp5.js)
 
+check p5/code/index.html
 
 ## Custom Blocks
 
