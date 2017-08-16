@@ -2,6 +2,9 @@
 
 This is block programing example for p5.js based on Blockly
 
+![screenshot](screenshot.png)
+
+
 ## Links
 
 - [Demo](https://ycatch.github.io/blockp5.js/p5/code/)

@@ -2,6 +2,9 @@
 
 p5.js と Blockly による、ブロックプログラミングのサンプル。
 
+![screenshot](screenshot.png)
+
+
 ## リンク
 
 - [デモ](https://ycatch.github.io/blockp5.js/p5/code/)
