@@ -7,7 +7,7 @@ This is block programing example for p5.js based on Blockly
 
 ## Try it !
 
-- [Demo](https://ycatch.github.io/blockp5.js/)
+- [Demo](https://ycatch.github.io/blockp5.js/example.html)
 
 
 1. Exchange **mouseX** and **mouseY**.

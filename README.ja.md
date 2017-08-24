@@ -7,7 +7,7 @@ p5.js と Blockly による、ブロックプログラミングのサンプル�
 
 ## リンク
 
-- [デモ](https://ycatch.github.io/blockp5.js/)
+- [デモ](https://ycatch.github.io/blockp5.js/example.html)
 - [github](https://github.com/ycatch/blockp5.js)
 
 
