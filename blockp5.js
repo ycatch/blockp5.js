@@ -113,7 +113,10 @@ var init = function() {
 
 var execStatus = "run";
 window.addEventListener('resize', onresize, false);
-onresize();
-Blockly.svgResize(workspace);
 init();
 runCode();
+
+setTimeout(function() {
+    onresize();
+    Blockly.svgResize(workspace);
+}, 300)
