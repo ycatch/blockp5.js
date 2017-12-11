@@ -28,7 +28,7 @@ var workspace = Blockly.inject(blocklyDiv, {
     },
     zoom: {
         controls: true,
-        wheel: true,
+        wheel: false,
         startScale: 1,
         maxScale: 3,
         minScale: 0.3,
@@ -102,7 +102,7 @@ var init = function() {
     });
 
     //rshow to Code tab
-    $("#code_tab").click(function() {
+    $("#blockly_code_tab").click(function() {
         setCode();
     });
 
@@ -113,7 +113,10 @@ var init = function() {
 
 var execStatus = "run";
 window.addEventListener('resize', onresize, false);
-onresize();
-Blockly.svgResize(workspace);
 init();
 runCode();
+
+setTimeout(function() {
+    onresize();
+    Blockly.svgResize(workspace);
+}, 500)
