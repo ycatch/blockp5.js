@@ -54,4 +54,4 @@ All Components have their own license.
 
 - [Bootstrap4](https://getbootstrap.com/)
 
-- [jquery with HTMLkickstart](https://jquery.com/)
+- [jquery](https://jquery.com/)
