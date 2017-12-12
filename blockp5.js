@@ -119,4 +119,4 @@ runCode();
 setTimeout(function() {
     onresize();
     Blockly.svgResize(workspace);
-}, 500)
+}, 1000)
