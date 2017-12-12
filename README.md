@@ -26,7 +26,6 @@ This is block programing example for p5.js based on Blockly
 
 - [github](https://github.com/ycatch/blockp5.js)
 
-check p5/code/index.html
 
 ## Custom Blocks
 
@@ -53,5 +52,5 @@ All Components have their own license.
 - [highlight.js](https://highlightjs.org/), [github](https://github.com/isagalaev/highlight.js)
 
 - [Bootstrap4](https://getbootstrap.com/)
-
+- [Font Awesome](http://fontawesome.io/)
 - [jquery](https://jquery.com/)
