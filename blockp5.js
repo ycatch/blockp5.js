@@ -85,29 +85,28 @@ let setCode = function() {
 
 let init = function() {
 
-    $("#p5Run").click(function() {
+    document.getElementById('p5Run').onclick = function() {
         execStatus = "run";
         runCode();
-    });
+    }
 
-    // Pause
-    $("#p5Pause").click(function() {
+    document.getElementById('p5Pause').onclick = function() {
         execStatus = "pause";
-    });
+    }
 
-    $("#p5Reset").click(function() {
+    document.getElementById('p5Reset').onclick = function() {
         if (confirm("Reset All!")) {
             $(window).scrollTop(0);
             location.reload(false);
         }
-    });
+    }
 
     //rshow to Code tab
-    $("#blockly_code_tab").click(function() {
+    document.getElementById('blockly_code_tab').onclick = function() {
         setCode();
-    });
+    }
 
-    $(window).scrollTop(0);
+    window.scrollTo(0, 0);
     workspace.resizeContents();
     setCode();
 }
