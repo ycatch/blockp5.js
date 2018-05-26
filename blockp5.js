@@ -1,10 +1,11 @@
-var PJs;
-var blocklyArea = document.getElementById('blocklyArea');
-// var blocklyDiv = document.getElementById('blocklyDiv');
-var blocklyDiv = document.getElementById('blocklyDiv');
-var toolboxText = document.getElementById('toolbox').outerHTML;
-var toolboxXml = Blockly.Xml.textToDom(toolboxText);
-var workspace = Blockly.inject(blocklyDiv, {
+var Pjs;
+var execStatus = "run";
+let blocklyArea = document.getElementById('blocklyArea');
+// let blocklyDiv = document.getElementById('blocklyDiv');
+let blocklyDiv = document.getElementById('blocklyDiv');
+let toolboxText = document.getElementById('toolbox').outerHTML;
+let toolboxXml = Blockly.Xml.textToDom(toolboxText);
+let workspace = Blockly.inject(blocklyDiv, {
     media: '../../media/',
     toolbox: toolboxXml,
     collapse: true,
@@ -38,11 +39,11 @@ var workspace = Blockly.inject(blocklyDiv, {
 
 Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'), workspace);
 
-var onresize = function(e) {
+let onresize = function(e) {
     // Compute the absolute coordinates and dimensions of blocklyArea.
-    var element = blocklyArea;
-    var x = 0;
-    var y = 0;
+    let element = blocklyArea;
+    let x = 0;
+    let y = 0;
     do {
         x += element.offsetLeft;
         y += element.offsetTop;
@@ -55,34 +56,34 @@ var onresize = function(e) {
     blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
 };
 
-var runCode = function() {
+let runCode = function() {
     // Generate JavaScript code and run it.
     window.LoopTrap = 1000;
     Blockly.JavaScript.INFINITE_LOOP_TRAP =
         'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-    var code = Blockly.JavaScript.workspaceToCode(workspace);
+    let code = Blockly.JavaScript.workspaceToCode(workspace);
     Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
 
     try {
-        var s = new Function("p", code);
+        let s = new Function("p", code);
         Pjs = new p5(s);
     } catch (e) {
         alert(e);
     }
 }
 
-var setCode = function() {
+let setCode = function() {
     // Generate JavaScript code and display it.
     Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-    var code = Blockly.JavaScript.workspaceToCode(workspace);
-    var codeDiv = $("#codeDiv");
+    let code = Blockly.JavaScript.workspaceToCode(workspace);
+    let codeDiv = $("#codeDiv");
     codeDiv.text(code);
     codeDiv.each(function(i, block) {
         hljs.highlightBlock(block);
     });
 }
 
-var init = function() {
+let init = function() {
 
     $("#p5Run").click(function() {
         execStatus = "run";
@@ -111,7 +112,6 @@ var init = function() {
     setCode();
 }
 
-var execStatus = "run";
 window.addEventListener('resize', onresize, false);
 init();
 runCode();
