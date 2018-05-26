@@ -1,0 +1,51 @@
+<main role="main">
+    <!-- <section class="jumbotron text-center">
+        <h1 class="jumbotron-heading">blockp5.js = p5.js + blockly</h1>
+        <p class="lead text-muted">This is block programing example for p5.js based on Blockly</p>
+    </section> -->
+
+    <table>
+        <tr>
+            <td>
+                <div class="btn-group" role="group" aria-label="Basic example">
+                    <button id="p5Run" type="button" class="btn btn-secondary"><i class="fa fa-play"></i> Run</button>
+                    <button id="p5Pause" type="button" class="btn btn-secondary"><i class="fa fa-pause"></i> Pause</button>
+                    <button id="p5Reset" type="button" class="btn btn-secondary"><i class="fa fa-refresh"></i> Reset</button>
+                </div>
+            </td>
+            <td style="padding:0;">
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="blockly_block_tab" data-toggle="tab" href="#blockly_block" role="tab" aria-controls="blockly_block_tab" aria-selected="true">Block</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="blockly_code_tab" data-toggle="tab" href="#blockly_code" role="tab" aria-controls="blockly_code_tab" aria-selected="false">Code</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td id="canvasArea" width="520">
+                <div id="myContainer"></div>
+                <h3>Try it !</h3>
+                <ul>
+                    <li>Exchange [mouseX] and [mouseY].</li>
+                    <li>Move [background color] from [draw] to [setup].</li>
+                    <li>Replace [ellipse] to [rect].</li>
+                </ul>
+                <h3>Operation</h3>
+                <p>Edit blocks and Click [Run] button.</p>
+            </td>
+            <td id="blocklyArea">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="blockly_block" role="tabpanel" aria-labelledby="home-tab">
+                        <div id="blocklyDiv" style="position: absolute"></div>
+                    </div>
+                    <div class="tab-pane fade" id="blockly_code" role="tabpanel" aria-labelledby="profile-tab">
+                        <pre><code id="codeDiv"></code></pre>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+</main>
