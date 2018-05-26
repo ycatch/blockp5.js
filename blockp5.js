@@ -1,5 +1,13 @@
+class Blockp5 {
+    constructor() {
+
+    }
+}
+
 var Pjs;
 var execStatus = "run";
+
+
 let blocklyArea = document.getElementById('blocklyArea');
 // let blocklyDiv = document.getElementById('blocklyDiv');
 let blocklyDiv = document.getElementById('blocklyDiv');
@@ -72,15 +80,12 @@ let runCode = function() {
     }
 }
 
-let setCode = function() {
-    // Generate JavaScript code and display it.
+let viewCode = function() {
     Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
     let code = Blockly.JavaScript.workspaceToCode(workspace);
-    let codeDiv = $("#codeDiv");
-    codeDiv.text(code);
-    codeDiv.each(function(i, block) {
-        hljs.highlightBlock(block);
-    });
+    let codeDiv = document.getElementById('codeDiv');
+    let html = Prism.highlight(code, Prism.languages.javascript, 'javascript');
+    codeDiv.innerHTML = html;
 }
 
 let init = function() {
@@ -96,22 +101,24 @@ let init = function() {
 
     document.getElementById('p5Reset').onclick = function() {
         if (confirm("Reset All!")) {
-            $(window).scrollTop(0);
+            window.scrollTo(0, 0);
             location.reload(false);
         }
     }
 
     //rshow to Code tab
     document.getElementById('blockly_code_tab').onclick = function() {
-        setCode();
+        viewCode();
     }
 
     window.scrollTo(0, 0);
     workspace.resizeContents();
-    setCode();
+    viewCode();
 }
 
 window.addEventListener('resize', onresize, false);
+
+const blockp5 = new Blockp5();
 init();
 runCode();
 
