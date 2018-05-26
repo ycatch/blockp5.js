@@ -1,15 +1,44 @@
 class Blockp5 {
     constructor() {
+        this._status = "run";
+        this.p5_obj = {};
+    }
 
+    set status(s) {
+        this._status = s;
+    }
+
+    get status() {
+        return this._status;
+    }
+
+    runCode() {
+        window.LoopTrap = 1000;
+        Blockly.JavaScript.INFINITE_LOOP_TRAP =
+            'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
+        let code = Blockly.JavaScript.workspaceToCode(workspace);
+        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+
+        try {
+            let s = new Function("p", code);
+            this.p5_obj = new p5(s);
+        } catch (e) {
+            alert(e);
+        }
+    }
+
+    viewCode() {
+        Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+        let code = Blockly.JavaScript.workspaceToCode(workspace);
+        let codeDiv = document.getElementById('codeDiv');
+        let html = Prism.highlight(code, Prism.languages.javascript, 'javascript');
+        codeDiv.innerHTML = html;
     }
 }
 
-var Pjs;
-var execStatus = "run";
-
+//  Block initiarize
 
 let blocklyArea = document.getElementById('blocklyArea');
-// let blocklyDiv = document.getElementById('blocklyDiv');
 let blocklyDiv = document.getElementById('blocklyDiv');
 let toolboxText = document.getElementById('toolbox').outerHTML;
 let toolboxXml = Blockly.Xml.textToDom(toolboxText);
@@ -64,65 +93,36 @@ let onresize = function(e) {
     blocklyDiv.style.height = blocklyArea.offsetHeight + 'px';
 };
 
-let runCode = function() {
-    // Generate JavaScript code and run it.
-    window.LoopTrap = 1000;
-    Blockly.JavaScript.INFINITE_LOOP_TRAP =
-        'if (--window.LoopTrap == 0) throw "Infinite loop.";\n';
-    let code = Blockly.JavaScript.workspaceToCode(workspace);
-    Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-
-    try {
-        let s = new Function("p", code);
-        Pjs = new p5(s);
-    } catch (e) {
-        alert(e);
-    }
-}
-
-let viewCode = function() {
-    Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-    let code = Blockly.JavaScript.workspaceToCode(workspace);
-    let codeDiv = document.getElementById('codeDiv');
-    let html = Prism.highlight(code, Prism.languages.javascript, 'javascript');
-    codeDiv.innerHTML = html;
-}
-
-let init = function() {
-
-    document.getElementById('p5Run').onclick = function() {
-        execStatus = "run";
-        runCode();
-    }
-
-    document.getElementById('p5Pause').onclick = function() {
-        execStatus = "pause";
-    }
-
-    document.getElementById('p5Reset').onclick = function() {
-        if (confirm("Reset All!")) {
-            window.scrollTo(0, 0);
-            location.reload(false);
-        }
-    }
-
-    //rshow to Code tab
-    document.getElementById('blockly_code_tab').onclick = function() {
-        viewCode();
-    }
-
-    window.scrollTo(0, 0);
-    workspace.resizeContents();
-    viewCode();
-}
 
 window.addEventListener('resize', onresize, false);
-
-const blockp5 = new Blockp5();
-init();
-runCode();
-
+window.scrollTo(0, 0);
+workspace.resizeContents();
 setTimeout(function() {
     onresize();
     Blockly.svgResize(workspace);
 }, 1000)
+
+
+var blockp5 = new Blockp5();
+blockp5.viewCode();
+blockp5.runCode();
+
+document.getElementById('p5Run').onclick = function() {
+    blockp5.status = "run";
+    blockp5.runCode();
+};
+
+document.getElementById('p5Pause').onclick = function() {
+    blockp5.status = "pause";
+}
+
+document.getElementById('p5Reset').onclick = function() {
+    if (confirm("Reset All!")) {
+        window.scrollTo(0, 0);
+        location.reload(false);
+    }
+};
+
+document.getElementById('blockly_code_tab').onclick = function() {
+    blockp5.viewCode();
+};
