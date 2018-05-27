@@ -1,3 +1,4 @@
+var PJs;
 class Blockp5 {
     constructor() {
         this._status = "run";
@@ -34,6 +35,7 @@ class Blockp5 {
         let html = Prism.highlight(code, Prism.languages.javascript, 'javascript');
         codeDiv.innerHTML = html;
     }
+
 }
 
 //  Block initiarize
@@ -76,6 +78,7 @@ let workspace = Blockly.inject(blocklyDiv, {
 
 Blockly.Xml.domToWorkspace(document.getElementById('startBlocks'), workspace);
 
+// Browser window resize
 let onresize = function(e) {
     // Compute the absolute coordinates and dimensions of blocklyArea.
     let element = blocklyArea;
@@ -103,6 +106,7 @@ setTimeout(function() {
 }, 1000)
 
 
+// Init blockp5
 var blockp5 = new Blockp5();
 blockp5.viewCode();
 blockp5.runCode();
@@ -111,10 +115,6 @@ document.getElementById('p5Run').onclick = function() {
     blockp5.status = "run";
     blockp5.runCode();
 };
-
-document.getElementById('p5Pause').onclick = function() {
-    blockp5.status = "pause";
-}
 
 document.getElementById('p5Reset').onclick = function() {
     if (confirm("Reset All!")) {
