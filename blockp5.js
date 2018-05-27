@@ -1,16 +1,7 @@
 var PJs;
 class Blockp5 {
     constructor() {
-        this._status = "run";
         this.p5_obj = {};
-    }
-
-    set status(s) {
-        this._status = s;
-    }
-
-    get status() {
-        return this._status;
     }
 
     runCode() {
@@ -112,7 +103,6 @@ blockp5.viewCode();
 blockp5.runCode();
 
 document.getElementById('p5Run').onclick = function() {
-    blockp5.status = "run";
     blockp5.runCode();
 };
 
