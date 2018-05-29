@@ -1,38 +1,17 @@
 // blockp5js = p5.js + blockly
 
-// BlockManger Initialize
 import { BlocklyManager } from "./blocklyManager.js";
-const blocklyManager = new BlocklyManager();
-
+import { onResize } from "./onResize.js";
 import { Blockp5 } from "./blockp5.js";
 
+const blocklyManager = new BlocklyManager();
 
-// Browser window resize
-let onresize = function(e) {
-    // Compute the absolute coordinates and dimensions of blocklyArea.
-    let element = blocklyManager.area;
-    let x = 0;
-    let y = 0;
-    do {
-        x += element.offsetLeft;
-        y += element.offsetTop;
-        element = element.offsetParent;
-    } while (element);
-    // Position blocklyDiv over blocklyArea.
-    blocklyManager.div.style.left = x + 'px';
-    blocklyManager.div.style.top = y + 'px';
-    blocklyManager.div.style.width =
-        blocklyManager.area.offsetWidth + 'px';
-    blocklyManager.div.style.height =
-        blocklyManager.area.offsetHeight + 'px';
-};
-
-
-window.addEventListener('resize', onresize, false);
+// Add resize
+window.addEventListener('resize', function() {onResize(blocklyManager);}, false);
 window.scrollTo(0, 0);
 blocklyManager.workspace.resizeContents();
 setTimeout(function() {
-    onresize();
+    onResize(blocklyManager);
     Blockly.svgResize(blocklyManager.workspace);
 }, 1000)
 
