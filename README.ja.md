@@ -33,8 +33,7 @@ All Components have their own license.
 
 - [p5.js](https://p5js.org/), [github](https://github.com/processing/p5.js)
 
-- [highlight.js](https://highlightjs.org/), [github](https://github.com/isagalaev/highlight.js)
+- [prism.js](http://prismjs.com/), [github](https://github.com/PrismJS/prism)
 
 - [Bootstrap4](https://getbootstrap.com/)
 - [Font Awesome](http://fontawesome.io/)
-- [jquery](https://jquery.com/)
