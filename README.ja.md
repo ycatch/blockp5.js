@@ -11,11 +11,6 @@ p5.js と Blockly による、ブロックプログラミングのサンプル�
 - [github](https://github.com/ycatch/blockp5.js)
 
 
-## 実行環境
-
-- ES2015 以降に対応の環境(ES Modules and Class)
-
-
 ## カスタムブロック
 
 1. [Blockly Developer Tools](https://developers.google.com/blockly/guides/create-custom-blocks/blockly-developer-tools) を使う.

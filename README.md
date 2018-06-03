@@ -22,11 +22,6 @@ This is block programing example for p5.js based on Blockly
 - Undo: CTRL+z.
 
 
-## Environment
-
-- ES2015 later(ES Modules and Class)
-
-
 ## Source code
 
 - [github](https://github.com/ycatch/blockp5.js)
